@@ -1,0 +1,42 @@
+Road
+	id
+	junction_id
+	length
+	link(RoadLink)
+		predecessor(Predecessor)
+			element_type
+			element_id
+			contact_point
+		successor(Successor)
+			element_type
+			element_id
+			contact_point
+	reference_line(std::vector<Geometry>)
+		s,x,y,hdg,length,type,
+		param_poly3(ParamPoly3)
+			aU,bU,cU,dU,aV,bV,cV,dV
+	type(std::vector<RoadType>)
+		s,type,speed
+	road_sections(std::vector<RoadSection>)
+		s,id,
+		left_lanes(std::vector<Lane>)
+		right_lanes(std::vector<Lane>)
+			road_id,road_section,id,
+			predecessor_id,successor_id
+			type,lane_change,
+			width(std::vector<LaneWidth>)
+				sOffset,
+				poly3(Poly3)
+					a,b,c,d
+
+Junction
+	id
+	connection(std::vector<Connection>)
+		id,
+		incomingRoad,connectingRoad,contactPoint
+		lane_link(LaneLink)
+			from
+			to
+
+		
+			
